@@ -7,15 +7,16 @@ async function handleshortUrlGenerator(req,res){
     if(!body.url){
         return res.status(400).json({error:"URL is reqd"})
     }
-
     const shortID=shortid();
+
     await URL.create({
         shortId:shortID,
         redirectURL:body.url,
         visitedHistory:[],
+        createdBy:req.user._id
     })
 
-    res.json({id:shortID});
+    return res.render('home', {id:shortID})
 }
 
 async function handleAnalytics(req,res){
