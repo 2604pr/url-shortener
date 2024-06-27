@@ -1,11 +1,11 @@
 const express=require("express");
 const path=require("path");
 const cookieParser=require("cookie-parser");
-const { connectToDB}=require("./connect")
+const { connectToDB}=require("./connect");
 const {restrictToLoggedInUserOnly}=require("./middlewares/auth");
-const URL=require('./models/url')
+const URL=require('./models/url');
 
-const staticRoute=require("./routes/staticRouter")
+const staticRoute=require("./routes/staticRouter");
 const urlRoute=require("./routes/url");
 const userRoute=require('./routes/user');
 
